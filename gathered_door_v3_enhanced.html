@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gathered by the Door - Where Creativity Meets Connection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sand-light: #f7f3e9;
+            --sand-medium: #e8dcc0;
+            --sand-dark: #d4c4a0;
+            --dune-shadow: #c2b088;
+            --sage-green: #a8b5a0;
+            --warm-beige: #f0ead2;
+            --dusty-rose: #ddb892;
+            --text-dark: #5a5447;
+            --text-light: #8b8680;
+            --accent: #9d8f7f;
+            --door-brown: #8b6f47;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--sand-light) 0%, var(--warm-beige) 100%);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Splash Screen */
+        .splash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--sand-medium) 50%, var(--dusty-rose) 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: splashFadeOut 8s ease-in-out forwards;
+            animation-delay: 4s;
+        }
+
+        .splash-content {
+            text-align: center;
+            transform: scale(0.8);
+            opacity: 0;
+            animation: splashContentIn 2s ease-out forwards;
+        }
+
+        .splash-logo {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            animation: letterGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            font-family: 'Times New Roman', 'Georgia', 'Playfair Display', serif;
+            text-transform: uppercase;
+        }
+
+        .splash-logo::after {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: -100vw;
+            width: 200vw;
+            height: 500px;
+            background-image: 
+                radial-gradient(ellipse 22px 36px at 8% 5%, rgba(139, 69, 19, 0.6), rgba(139, 69, 19, 0.4) 40%, rgba(139, 69, 19, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 20px 34px at 25% 15%, rgba(205, 133, 63, 0.55), rgba(205, 133, 63, 0.35) 40%, rgba(205, 133, 63, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 24px 38px at 42% 8%, rgba(160, 82, 45, 0.58), rgba(160, 82, 45, 0.38) 40%, rgba(160, 82, 45, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 18px 32px at 58% 25%, rgba(218, 165, 32, 0.52), rgba(218, 165, 32, 0.32) 40%, rgba(218, 165, 32, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 21px 35px at 72% 12%, rgba(139, 69, 19, 0.56), rgba(139, 69, 19, 0.36) 40%, rgba(139, 69, 19, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 19px 33px at 85% 20%, rgba(205, 133, 63, 0.54), rgba(205, 133, 63, 0.34) 40%, rgba(205, 133, 63, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 23px 37px at 15% 65%, rgba(160, 82, 45, 0.57), rgba(160, 82, 45, 0.37) 40%, rgba(160, 82, 45, 0.1) 70%, transparent 85%),
+                radial-gradient(ellipse 20px 34px at 90% 75%, rgba(218, 165, 32, 0.53), rgba(218, 165, 32, 0.33) 40%, rgba(218, 165, 32, 0.1) 70%, transparent 85%);
+            animation: leafSilhouettesFall 22s linear infinite;
+            opacity: 0.9;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .splash-logo::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: -100vw;
+            width: 200vw;
+            height: 600px;
+            background-image:
+                radial-gradient(ellipse 25px 40px at 18% 3%, rgba(160, 82, 45, 0.48), rgba(160, 82, 45, 0.28) 40%, rgba(160, 82, 45, 0.08) 70%, transparent 80%),
+                radial-gradient(ellipse 22px 36px at 35% 18%, rgba(139, 69, 19, 0.46), rgba(139, 69, 19, 0.26) 40%, rgba(139, 69, 19, 0.06) 70%, transparent 80%),
+                radial-gradient(ellipse 20px 34px at 52% 7%, rgba(218, 165, 32, 0.44), rgba(218, 165, 32, 0.24) 40%, rgba(218, 165, 32, 0.06) 70%, transparent 80%),
+                radial-gradient(ellipse 23px 38px at 68% 22%, rgba(205, 133, 63, 0.47), rgba(205, 133, 63, 0.27) 40%, rgba(205, 133, 63, 0.07) 70%, transparent 80%),
+                radial-gradient(ellipse 21px 35px at 82% 10%, rgba(160, 82, 45, 0.45), rgba(160, 82, 45, 0.25) 40%, rgba(160, 82, 45, 0.05) 70%, transparent 80%),
+                radial-gradient(ellipse 19px 33px at 95% 30%, rgba(139, 69, 19, 0.43), rgba(139, 69, 19, 0.23) 40%, rgba(139, 69, 19, 0.05) 70%, transparent 80%);
+            animation: leafSilhouettesFall 30s linear infinite;
+            animation-delay: -12s;
+            opacity: 0.7;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .splash-tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+            color: var(--text-light);
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        .splash-door {
+            width: clamp(40px, 10vw, 60px);
+            height: clamp(55px, 13vw, 80px);
+            background: var(--door-brown);
+            border-radius: 8px;
+            margin: 2rem auto;
+            position: relative;
+            transform: rotateY(-25deg) scale(0.9);
+            animation: doorOpenAndGrow 2.5s ease-in-out 1s forwards;
+            box-shadow: 0 10px 30px rgba(139, 111, 71, 0.3);
+            transform-style: preserve-3d;
+        }
+
+        .splash-door::before {
+            content: '';
+            position: absolute;
+            right: 6px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: linear-gradient(135deg, var(--dusty-rose), #C8860D);
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            animation: doorKnobShine 2.5s ease-in-out 1s forwards;
+        }
+
+        .skip-splash {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-dark);
+            border: 1px solid rgba(157, 143, 127, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            z-index: 10000;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skip-splash:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 4px 12px rgba(157, 143, 127, 0.2);
+        }
+
+        /* Main content */
+        .main-content {
+            opacity: 0;
+            animation: mainContentFadeIn 1s ease-out forwards;
+            animation-delay: 8s;
+        }
+
+        /* Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 15px 40px rgba(157, 143, 127, 0.5);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            animation: floatPulse 3s ease-in-out infinite;
+        }
+
+        @media (min-width: 769px) {
+            .floating-contact {
+                width: auto;
+                height: auto;
+                padding: 0.8rem 1.2rem;
+                border-radius: 20px;
+                bottom: 2rem;
+                right: 2rem;
+                gap: 0.4rem;
+                min-width: 220px;
+                max-width: 250px;
+            }
+            
+            .contact-text {
+                display: block;
+                font-size: 0.9rem;
+                font-weight: bold;
+                line-height: 1.2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-text {
+                display: none;
+            }
+        }
+
+        .floating-contact:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 20px 50px rgba(157, 143, 127, 0.7);
+        }
+
+        /* Contact Modal */
+        .contact-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(90, 84, 71, 0.8);
+            z-index: 1000;
+        }
+
+        .contact-modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--warm-beige);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(90, 84, 71, 0.3);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--sand-medium);
+            color: var(--text-dark);
+        }
+
+        .contact-modal form input,
+        .contact-modal form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--sand-medium);
+            border-radius: 8px;
+            background: white;
+            font-size: 16px;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+
+        .contact-modal form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .contact-modal form button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 1rem;
+            min-height: 44px;
+        }
+
+        .contact-modal h3 {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand-medium) 50%, var(--dusty-rose) 100%);
+            overflow: hidden;
+        }
+
+        .dune-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: morphAndFloat 15s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: clamp(50px, 8vw, 80px);
+            height: clamp(50px, 8vw, 80px);
+            background: linear-gradient(135deg, var(--sand-medium), var(--dune-shadow));
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: clamp(60px, 10vw, 100px);
+            height: clamp(60px, 10vw, 100px);
+            background: linear-gradient(45deg, var(--dune-shadow), var(--dusty-rose));
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: clamp(40px, 6vw, 60px);
+            height: clamp(40px, 6vw, 60px);
+            background: linear-gradient(225deg, var(--dusty-rose), var(--sand-medium));
+            top: 15%;
+            right: 20%;
+            animation-delay: 10s;
+        }
+
+        .floating-shape:nth-child(4) {
+            width: clamp(55px, 9vw, 90px);
+            height: clamp(55px, 9vw, 90px);
+            background: linear-gradient(90deg, var(--sage-green), var(--sand-medium));
+            top: 70%;
+            left: 20%;
+            animation-delay: 7s;
+        }
+
+        .floating-shape:nth-child(5) {
+            width: clamp(45px, 7vw, 70px);
+            height: clamp(45px, 7vw, 70px);
+            background: linear-gradient(180deg, var(--warm-beige), var(--dusty-rose));
+            top: 40%;
+            left: 80%;
+            animation-delay: 3s;
+        }
+
+        .floating-shape:nth-child(6) {
+            width: clamp(50px, 8.5vw, 85px);
+            height: clamp(50px, 8.5vw, 85px);
+            background: linear-gradient(45deg, var(--dusty-rose), var(--sand-medium));
+            top: 25%;
+            left: 60%;
+            animation-delay: 8s;
+        }
+
+        .floating-shape:nth-child(7) {
+            width: clamp(48px, 7.5vw, 75px);
+            height: clamp(48px, 7.5vw, 75px);
+            background: linear-gradient(270deg, var(--sage-green), var(--dusty-rose));
+            top: 80%;
+            right: 30%;
+            animation-delay: 12s;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+            font-family: 'Comic Neue', 'Fredoka One', 'Quicksand', 'Comfortaa', sans-serif;
+            text-transform: none;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 3vw, 1.8rem);
+            font-weight: 300;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-family: 'Quicksand', 'Comfortaa', 'Nunito', sans-serif;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--accent));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(157, 143, 127, 0.3);
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            min-height: 44px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(157, 143, 127, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: clamp(1rem, 3vw, 2rem) 1rem;
+            background: linear-gradient(180deg, var(--warm-beige) 0%, var(--sand-light) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-family: 'Fredoka One', 'Comic Neue', 'Quicksand', sans-serif;
+        }
+
+        .section-header p {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(157, 143, 127, 0.2);
+        }
+
+        .service-icon {
+            width: clamp(60px, 15vw, 80px);
+            height: clamp(60px, 15vw, 80px);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .service-card h3 {
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-family: 'Quicksand', 'Comfortaa', sans-serif;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+        }
+
+        .service-features li::before {
+            content: '•';
+            color: var(--sage-green);
+            font-size: 1.2rem;
+            position: relative;
+            left: -5%;
+        }
+
+        /* About Section */
+        .about {
+            padding: clamp(4rem, 10vw, 8rem) 1rem;
+            background: var(--sand-medium);
+        }
+
+        .about-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 769px) {
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .about-text h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-family: 'Fredoka One', 'Comic Neue', 'Quicksand', sans-serif;
+        }
+
+        .about-text p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 200;
+            color: var(--sage-green);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Pumpkin Packages Section */
+        .pumpkin-packages {
+            padding: clamp(4rem, 10vw, 8rem) 1rem;
+            background: linear-gradient(180deg, var(--sand-light) 0%, var(--warm-beige) 100%);
+            position: relative;
+        }
+
+        .pumpkin-packages::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, transparent 49%, var(--sand-light) 51%);
+        }
+
+        .packages-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            border: 2px solid rgba(157, 143, 127, 0.2);
+            position: relative;
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(157, 143, 127, 0.2);
+            border-color: var(--sage-green);
+        }
+
+        .package-card.featured {
+            border-color: var(--dusty-rose);
+            background: linear-gradient(135deg, rgba(221, 184, 146, 0.1), rgba(255, 255, 255, 0.9));
+            transform: scale(1.05);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--dusty-rose), #B8860B);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(157, 143, 127, 0.3);
+        }
+
+        .package-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .package-card h3 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-family: 'Fredoka One', 'Comic Neue', 'Quicksand', sans-serif;
+        }
+
+        .package-price {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 200;
+            color: var(--sage-green);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .package-details {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .package-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .package-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+        }
+
+        .package-features li::before {
+            content: '🎃';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        /* Package Add-ons Section */
+        .package-addons {
+            background: rgba(168, 181, 160, 0.1);
+            border: 1px solid rgba(168, 181, 160, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .addons-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .addon-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .addon-option:hover {
+            background: rgba(168, 181, 160, 0.1);
+        }
+
+        .addon-checkbox {
+            margin-top: 0.2rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--sage-green);
+            cursor: pointer;
+        }
+
+        .addon-info {
+            flex: 1;
+        }
+
+        .addon-label {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        .addon-description {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        .addon-price {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--sage-green);
+            margin-top: 0.25rem;
+        }
+
+        .total-price-display {
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .total-price-display.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .package-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            min-height: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(168, 181, 160, 0.3);
+        }
+
+        .package-button:active {
+            transform: translateY(0);
+        }
+
+        .packages-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(168, 181, 160, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(168, 181, 160, 0.2);
+        }
+
+        .packages-footer p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        footer {
+            padding: 2rem 1rem;
+            background: var(--sand-dark);
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animations */
+        @keyframes splashContentIn {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes splashFadeOut {
+            80% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes letterGlow {
+            0% { text-shadow: 0 0 5px rgba(157, 143, 127, 0.3); }
+            100% { text-shadow: 0 0 20px rgba(157, 143, 127, 0.6), 0 0 30px rgba(157, 143, 127, 0.4); }
+        }
+
+        @keyframes leafSilhouettesFall {
+            0% {
+                transform: translateY(-50px) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(400px) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes doorOpenAndGrow {
+            0% {
+                transform: rotateY(-25deg) scale(0.9);
+                box-shadow: 0 5px 15px rgba(139, 111, 71, 0.2);
+            }
+            50% {
+                transform: rotateY(-5deg) scale(1.05);
+                box-shadow: 0 15px 35px rgba(139, 111, 71, 0.4);
+            }
+            100% {
+                transform: rotateY(0deg) scale(1);
+                box-shadow: 0 10px 30px rgba(139, 111, 71, 0.3);
+            }
+        }
+
+        @keyframes doorKnobShine {
+            0% {
+                opacity: 0.7;
+                transform: translateY(-50%) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.2);
+                box-shadow: 0 0 8px rgba(200, 134, 13, 0.6);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+        }
+
+        @keyframes mainContentFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatPulse {
+            0%, 100% { 
+                transform: translateY(0px);
+                box-shadow: 0 15px 40px rgba(157, 143, 127, 0.5);
+            }
+            50% { 
+                transform: translateY(-8px);
+                box-shadow: 0 25px 50px rgba(157, 143, 127, 0.6);
+            }
+        }
+
+        @keyframes morphAndFloat {
+            0% { 
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                border-radius: 50%;
+                opacity: 0.7;
+            }
+            20% { 
+                transform: translateY(-30px) translateX(20px) rotate(45deg);
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+                opacity: 0.8;
+            }
+            40% { 
+                transform: translateY(-10px) translateX(-15px) rotate(90deg);
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+                opacity: 0.6;
+            }
+            60% { 
+                transform: translateY(15px) translateX(25px) rotate(180deg);
+                border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+                opacity: 0.9;
+            }
+            80% { 
+                transform: translateY(-5px) translateX(-10px) rotate(270deg);
+                border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+                opacity: 0.5;
+            }
+            100% { 
+                transform: translateY(0px) translateX(0px) rotate(360deg);
+                border-radius: 50%;
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-overlay">
+        <div class="splash-content">
+            <div class="splash-door"></div>
+            <h1 class="splash-logo">Gathered by the Door</h1>
+            <p class="splash-tagline">Where Creativity Meets Connection</p>
+        </div>
+        <button class="skip-splash" onclick="skipSplash()">Skip Intro ↓</button>
+    </div>
+
+    <!-- Floating Contact Button -->
+    <button class="floating-contact" onclick="openContactModal()">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text">Custom Quotes or Questions? Contact Us Now!</div>
+    </button>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal-overlay" id="contactModal">
+        <div class="contact-modal">
+            <button class="modal-close" onclick="closeContactModal()">&times;</button>
+            <h3>Get in Touch</h3>
+            <form onsubmit="sendEmail(event)">
+                <input type="text" id="clientName" placeholder="Your Name" required>
+                <input type="email" id="clientEmail" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="dune-shapes">
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+            </div>
+            <div class="hero-content fade-in">
+                <h1>Gathered by the Door</h1>
+                <p class="tagline">Where Creativity Meets Connection</p>
+                <a href="#services" class="cta-button">Explore Our Services</a>
+            </div>
+        </section>
+
+        <!-- Pumpkin Porch Packages Section -->
+        <section class="pumpkin-packages">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>🎃 Fall Pumpkin Porch Packages</h2>
+                    <p>Transform your entrance into a stunning fall display with our curated pumpkin arrangements. Perfect for the upcoming autumn season!</p>
+                </div>
+                
+                <div class="packages-grid">
+                    <div class="package-card fade-in" data-package="small">
+                        <div class="package-icon">🎃</div>
+                        <h3>Small Patch</h3>
+                        <div class="package-price" data-base-price="250">$250</div>
+                        <div class="package-details">15-20 Premium Pumpkins</div>
+                        <p>Perfect for cozy porches and smaller spaces. Includes a beautiful mix of traditional orange pumpkins, white pumpkins, and decorative gourds.</p>
+                        <ul class="package-features">
+                            <li>15-20 hand-selected pumpkins</li>
+                            <li>Variety of sizes and colors</li>
+                            <li>Decorative arrangement setup</li>
+                            <li>Seasonal styling consultation</li>
+                        </ul>
+                        
+                        <div class="package-addons">
+                            <div class="addons-title">
+                                ✨ Optional Add-ons
+                            </div>
+                            <label class="addon-option" for="removal-small">
+                                <input type="checkbox" id="removal-small" class="addon-checkbox" data-price="75" data-type="removal">
+                                <div class="addon-info">
+                                    <div class="addon-label">End-of-Season Removal</div>
+                                    <div class="addon-description">We'll return to collect and dispose of all pumpkins and decorations when the season ends</div>
+                                    <div class="addon-price">+$75</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="photoshoot-small">
+                                <input type="checkbox" id="photoshoot-small" class="addon-checkbox" data-price="150" data-type="photoshoot">
+                                <div class="addon-info">
+                                    <div class="addon-label">Professional Photoshoot</div>
+                                    <div class="addon-description">Capture your beautiful fall display with a professional photo session of your decorated porch</div>
+                                    <div class="addon-price">+$150</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="video-small">
+                                <input type="checkbox" id="video-small" class="addon-checkbox" data-price="95" data-type="video">
+                                <div class="addon-info">
+                                    <div class="addon-label">Custom Video Package</div>
+                                    <div class="addon-description">1-2 minute highlight clip featuring your family, friends, and beautiful decorations</div>
+                                    <div class="addon-price">+$95</div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="total-price-display" id="total-small">
+                            Total: $250
+                        </div>
+                        
+                        <button class="package-button" onclick="bookPackage('small')">Book Small Patch</button>
+                    </div>
+
+                    <div class="package-card fade-in featured" data-package="medium">
+                        <div class="package-badge">Most Popular</div>
+                        <div class="package-icon">🎃🎃</div>
+                        <h3>Medium Patch</h3>
+                        <div class="package-price" data-base-price="500">$500</div>
+                        <div class="package-details">25-35 Premium Pumpkins</div>
+                        <p>Our most popular option! Creates a stunning display with premium pumpkins, decorative elements, and professional styling.</p>
+                        <ul class="package-features">
+                            <li>25-35 premium pumpkins & gourds</li>
+                            <li>Hay bales and corn stalks</li>
+                            <li>Professional arrangement design</li>
+                            <li>Seasonal accent decorations</li>
+                            <li>Fall maintenance guide</li>
+                        </ul>
+                        
+                        <div class="package-addons">
+                            <div class="addons-title">
+                                ✨ Optional Add-ons
+                            </div>
+                            <label class="addon-option" for="removal-medium">
+                                <input type="checkbox" id="removal-medium" class="addon-checkbox" data-price="75" data-type="removal">
+                                <div class="addon-info">
+                                    <div class="addon-label">End-of-Season Removal</div>
+                                    <div class="addon-description">We'll return to collect and dispose of all pumpkins and decorations when the season ends</div>
+                                    <div class="addon-price">+$75</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="photoshoot-medium">
+                                <input type="checkbox" id="photoshoot-medium" class="addon-checkbox" data-price="150" data-type="photoshoot">
+                                <div class="addon-info">
+                                    <div class="addon-label">Professional Photoshoot</div>
+                                    <div class="addon-description">Capture your beautiful fall display with a professional photo session of your decorated porch</div>
+                                    <div class="addon-price">+$150</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="video-medium">
+                                <input type="checkbox" id="video-medium" class="addon-checkbox" data-price="95" data-type="video">
+                                <div class="addon-info">
+                                    <div class="addon-label">Custom Video Package</div>
+                                    <div class="addon-description">1-2 minute highlight clip featuring your family, friends, and beautiful decorations</div>
+                                    <div class="addon-price">+$95</div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="total-price-display" id="total-medium">
+                            Total: $500
+                        </div>
+                        
+                        <button class="package-button" onclick="bookPackage('medium')">Book Medium Patch</button>
+                    </div>
+
+                    <div class="package-card fade-in" data-package="large">
+                        <div class="package-icon">🎃🎃🎃</div>
+                        <h3>Large Patch</h3>
+                        <div class="package-price" data-base-price="1000">$1,000</div>
+                        <div class="package-details">50-70 Premium Pumpkins</div>
+                        <p>The ultimate fall statement! A spectacular display that will make your home the highlight of the neighborhood this autumn.</p>
+                        <ul class="package-features">
+                            <li>50-70 premium pumpkins & gourds</li>
+                            <li>Multiple hay bales & corn stalks</li>
+                            <li>Luxury fall decoration elements</li>
+                            <li>Professional design & installation</li>
+                            <li>Seasonal wreath included</li>
+                            <li>Weekly maintenance visits</li>
+                        </ul>
+                        
+                        <div class="package-addons">
+                            <div class="addons-title">
+                                ✨ Optional Add-ons
+                            </div>
+                            <label class="addon-option" for="removal-large">
+                                <input type="checkbox" id="removal-large" class="addon-checkbox" data-price="75" data-type="removal">
+                                <div class="addon-info">
+                                    <div class="addon-label">End-of-Season Removal</div>
+                                    <div class="addon-description">We'll return to collect and dispose of all pumpkins and decorations when the season ends</div>
+                                    <div class="addon-price">+$75</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="photoshoot-large">
+                                <input type="checkbox" id="photoshoot-large" class="addon-checkbox" data-price="150" data-type="photoshoot">
+                                <div class="addon-info">
+                                    <div class="addon-label">Professional Photoshoot</div>
+                                    <div class="addon-description">Capture your beautiful fall display with a professional photo session of your decorated porch</div>
+                                    <div class="addon-price">+$150</div>
+                                </div>
+                            </label>
+                            <label class="addon-option" for="video-large">
+                                <input type="checkbox" id="video-large" class="addon-checkbox" data-price="95" data-type="video">
+                                <div class="addon-info">
+                                    <div class="addon-label">Custom Video Package</div>
+                                    <div class="addon-description">1-2 minute highlight clip featuring your family, friends, and beautiful decorations</div>
+                                    <div class="addon-price">+$95</div>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        <div class="total-price-display" id="total-large">
+                            Total: $1,000
+                        </div>
+                        
+                        <button class="package-button" onclick="bookPackage('large')">Book Large Patch</button>
+                    </div>
+                </div>
+                
+                <div class="packages-footer fade-in">
+                    <p><strong>🍂 Limited Time:</strong> Book by September 30th for early October installation. All packages include delivery, setup, and styling consultation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Our Creative Services</h2>
+                    <p>From seasonal doorway decorations to memorable moments captured in time, we bring your vision to life with artistry and heart.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🎃</div>
+                        <h3>Seasonal Door Decor</h3>
+                        <p>Transform your entrance into a welcoming gateway that celebrates every season and holiday with style and sophistication.</p>
+                        <ul class="service-features">
+                            <li>Halloween Spooktacular Displays</li>
+                            <li>Christmas & Holiday Lighting</li>
+                            <li>Seasonal Wreaths & Arrangements</li>
+                            <li>Custom Themed Installations</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🏠</div>
+                        <h3>Exterior Styling</h3>
+                        <p>Elevate your home's curb appeal with thoughtfully designed outdoor decorations that reflect your personality and style.</p>
+                        <ul class="service-features">
+                            <li>Porch & Entryway Design</li>
+                            <li>Window Box Arrangements</li>
+                            <li>Outdoor Living Spaces</li>
+                            <li>Garden & Landscape Accents</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">⭐</div>
+                        <h3>Special Occasions</h3>
+                        <p>Create magical moments with custom decorative installations that make your celebrations unforgettable and Instagram-worthy.</p>
+                        <ul class="service-features">
+                            <li>Nativity Scene Displays</li>
+                            <li>Birthday & Anniversary Decor</li>
+                            <li>Welcome Home Celebrations</li>
+                            <li>Custom Event Styling</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🎬</div>
+                        <h3>Video & Animation</h3>
+                        <p>Bring your stories to life with engaging, shareable video content that captures precious moments and creates lasting memories.</p>
+                        <ul class="service-features">
+                            <li>Kids Birthday Party Videos</li>
+                            <li>Event Highlight Reels</li>
+                            <li>Social Media Content</li>
+                            <li>Custom Animation Projects</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">📸</div>
+                        <h3>Event Photography</h3>
+                        <p>Preserve your most cherished moments with professional photography that tells your unique story with artistry and emotion.</p>
+                        <ul class="service-features">
+                            <li>Birthday & Celebration Photography</li>
+                            <li>Family Gathering Documentation</li>
+                            <li>Before & After Styling Shots</li>
+                            <li>Social Media Photography</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🎨</div>
+                        <h3>Creative Consulting</h3>
+                        <p>Let us help you discover your creative vision and develop a cohesive aesthetic that brings joy to your everyday spaces.</p>
+                        <ul class="service-features">
+                            <li>Style & Theme Development</li>
+                            <li>Color Palette Consultation</li>
+                            <li>Seasonal Planning Services</li>
+                            <li>DIY Project Guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <h2>Creating Connections, One Door at a Time</h2>
+                        <p>At Gathered by the Door, we believe that your entrance is more than just a doorway—it's the first chapter of your story. Whether it's the warm glow of holiday lights or the perfect capture of a child's birthday smile, we specialize in creating moments that bring people together.</p>
+                        <p>Our passion lies in transforming ordinary spaces into extraordinary experiences, one project at a time. From seasonal decorations that make neighbors pause and smile, to videos that preserve precious memories forever.</p>
+                    </div>
+                    <div class="stats fade-in">
+                        <div class="stat-item">
+                            <span class="stat-number">200+</span>
+                            <span class="stat-label">Homes Decorated</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Videos Created</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Smiles Guaranteed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Creating Magic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Gathered by the Door. Creating beautiful moments, one entrance at a time.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Package pricing and state management
+        const packageState = {
+            small: { removal: false, photoshoot: false, video: false },
+            medium: { removal: false, photoshoot: false, video: false },
+            large: { removal: false, photoshoot: false, video: false }
+        };
+
+        const basePrices = {
+            small: 250,
+            medium: 500,
+            large: 1000
+        };
+
+        const addonPrices = {
+            removal: 75,
+            photoshoot: 150,
+            video: 95
+        };
+
+        // Initialize package pricing
+        function initializePackages() {
+            ['small', 'medium', 'large'].forEach(packageType => {
+                // Ensure initial prices show with dollar signs
+                const priceElement = document.querySelector(`[data-package="${packageType}"] .package-price`);
+                const basePrice = basePrices[packageType];
+                priceElement.textContent = `${basePrice.toLocaleString()}`;
+                
+                updatePackagePrice(packageType);
+                setupPackageListeners(packageType);
+            });
+        }
+
+        // Setup event listeners for a package
+        function setupPackageListeners(packageType) {
+            const checkboxes = document.querySelectorAll(`[data-package="${packageType}"] .addon-checkbox`);
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const addonType = this.dataset.type;
+                    packageState[packageType][addonType] = this.checked;
+                    updatePackagePrice(packageType);
+                });
+            });
+        }
+
+        // Update package price display
+        function updatePackagePrice(packageType) {
+            const state = packageState[packageType];
+            const basePrice = basePrices[packageType];
+            
+            let totalPrice = basePrice;
+            if (state.removal) totalPrice += addonPrices.removal;
+            if (state.photoshoot) totalPrice += addonPrices.photoshoot;
+            if (state.video) totalPrice += addonPrices.video;
+            
+            // Update main price display
+            const priceElement = document.querySelector(`[data-package="${packageType}"] .package-price`);
+            const totalElement = document.getElementById(`total-${packageType}`);
+            
+            if (totalPrice !== basePrice) {
+                priceElement.textContent = `${basePrice}`;
+                totalElement.textContent = `Total: $${totalPrice.toLocaleString()}`;
+                totalElement.classList.add('visible');
+            } else {
+                priceElement.textContent = `${basePrice.toLocaleString()}`;
+                totalElement.classList.remove('visible');
+            }
+        }
+
+        // Enhanced booking function with add-ons
+        function bookPackage(packageType) {
+            const state = packageState[packageType];
+            const basePrice = basePrices[packageType];
+            
+            let totalPrice = basePrice;
+            let addons = [];
+            
+            if (state.removal) {
+                totalPrice += addonPrices.removal;
+                addons.push('End-of-Season Removal (+$75)');
+            }
+            
+            if (state.photoshoot) {
+                totalPrice += addonPrices.photoshoot;
+                addons.push('Professional Photoshoot (+$150)');
+            }
+            
+            if (state.video) {
+                totalPrice += addonPrices.video;
+                addons.push('Custom Video Package (+$95)');
+            }
+            
+            const packageNames = {
+                small: 'Small Patch',
+                medium: 'Medium Patch', 
+                large: 'Large Patch'
+            };
+            
+            const packageName = packageNames[packageType];
+            const addonsText = addons.length > 0 ? `\n\nSelected Add-ons:\n${addons.map(addon => `• ${addon}`).join('\n')}` : '';
+            
+            const subject = encodeURIComponent(`Pumpkin Package Booking - ${packageName} (Total: ${totalPrice})`);
+            const body = encodeURIComponent(`Hi! I'd like to book the ${packageName} for this fall season.
+
+Package Details:
+• Base Package: ${packageName} - ${basePrice}${addonsText}
+
+TOTAL PRICE: ${totalPrice}
+
+Please contact me to discuss:
+• Installation date preferences
+• Property address
+• Any special requests
+
+Thank you!`);
+            
+            const mailtoLink = `mailto:annaksiy@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+        }
+
+        // Create luxury doors with wreath dynamically
+        function createDoorPanels() {
+            console.log('Creating luxury doors with wreath...');
+            
+            // Remove any existing doors
+            const existingLeft = document.querySelector('.door-left');
+            const existingRight = document.querySelector('.door-right');
+            if (existingLeft) existingLeft.remove();
+            if (existingRight) existingRight.remove();
+            
+            // Create left door
+            const doorLeft = document.createElement('div');
+            doorLeft.className = 'door-left';
+            doorLeft.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 50vw;
+                height: 100vh;
+                background: 
+                    linear-gradient(2deg, rgba(139,111,71,0.3) 0%, transparent 2%, transparent 98%, rgba(139,111,71,0.3) 100%),
+                    linear-gradient(92deg, rgba(101,67,33,0.2) 0%, transparent 1%, transparent 99%, rgba(101,67,33,0.2) 100%),
+                    linear-gradient(45deg, #6B4423 0%, #8B6F47 25%, #7A5F3F 50%, #654321 75%, #4A3219 100%);
+                border: 8px solid #3A251A;
+                border-right: 12px solid #2A1B12;
+                box-shadow: 
+                    inset 0 0 30px rgba(0,0,0,0.3),
+                    inset 10px 0 20px rgba(139,111,71,0.1),
+                    3px 0 25px rgba(0,0,0,0.5);
+                z-index: 99999;
+                transform: translateX(-100%);
+                transition: transform 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+            `;
+            
+            // Left door window
+            const leftWindow = document.createElement('div');
+            leftWindow.style.cssText = `
+                position: absolute;
+                top: 12%;
+                left: 12%;
+                width: 76%;
+                height: 45%;
+                background: 
+                    linear-gradient(45deg, rgba(255,255,255,0.1), rgba(240,234,210,0.2)),
+                    rgba(240, 234, 210, 0.15);
+                border: 6px solid #3A251A;
+                border-radius: 12px;
+                backdrop-filter: blur(3px);
+                box-shadow: 
+                    inset 0 0 20px rgba(255,255,255,0.1),
+                    0 8px 16px rgba(0,0,0,0.4);
+                overflow: hidden;
+            `;
+            
+            // Window grid
+            for (let i = 1; i < 3; i++) {
+                const hBar = document.createElement('div');
+                hBar.style.cssText = `
+                    position: absolute;
+                    top: ${(i * 33.33)}%;
+                    left: 0;
+                    width: 100%;
+                    height: 6px;
+                    background: linear-gradient(90deg, #2A1B12, #3A251A, #2A1B12);
+                    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+                `;
+                leftWindow.appendChild(hBar);
+                
+                const vBar = document.createElement('div');
+                vBar.style.cssText = `
+                    position: absolute;
+                    left: ${(i * 33.33)}%;
+                    top: 0;
+                    width: 6px;
+                    height: 100%;
+                    background: linear-gradient(180deg, #2A1B12, #3A251A, #2A1B12);
+                    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+                `;
+                leftWindow.appendChild(vBar);
+            }
+            
+            doorLeft.appendChild(leftWindow);
+            
+            // Left door handle
+            const leftHandlePlate = document.createElement('div');
+            leftHandlePlate.style.cssText = `
+                position: absolute;
+                top: 48%;
+                right: 8px;
+                width: 50px;
+                height: 80px;
+                background: linear-gradient(135deg, #C9B037, #FFD700, #DAA520, #B8860B);
+                border-radius: 8px;
+                transform: translateY(-50%);
+                box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            `;
+            
+            const leftHandle = document.createElement('div');
+            leftHandle.style.cssText = `
+                position: absolute;
+                right: -12px;
+                top: 50%;
+                width: 45px;
+                height: 8px;
+                background: linear-gradient(90deg, #B8860B, #DAA520, #FFD700);
+                border-radius: 4px;
+                transform: translateY(-50%);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            `;
+            
+            const leftKnob = document.createElement('div');
+            leftKnob.style.cssText = `
+                position: absolute;
+                right: -10px;
+                top: 50%;
+                width: 24px;
+                height: 24px;
+                background: radial-gradient(circle, #FFD700, #DAA520, #B8860B);
+                border-radius: 50%;
+                transform: translateY(-50%);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            `;
+            
+            leftHandle.appendChild(leftKnob);
+            leftHandlePlate.appendChild(leftHandle);
+            doorLeft.appendChild(leftHandlePlate);
+            
+            // Create right door
+            const doorRight = document.createElement('div');
+            doorRight.className = 'door-right';
+            doorRight.style.cssText = `
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 50vw;
+                height: 100vh;
+                background: 
+                    linear-gradient(-2deg, rgba(139,111,71,0.3) 0%, transparent 2%, transparent 98%, rgba(139,111,71,0.3) 100%),
+                    linear-gradient(-92deg, rgba(101,67,33,0.2) 0%, transparent 1%, transparent 99%, rgba(101,67,33,0.2) 100%),
+                    linear-gradient(-45deg, #6B4423 0%, #8B6F47 25%, #7A5F3F 50%, #654321 75%, #4A3219 100%);
+                border: 8px solid #3A251A;
+                border-left: 12px solid #2A1B12;
+                box-shadow: 
+                    inset 0 0 30px rgba(0,0,0,0.3),
+                    inset -10px 0 20px rgba(139,111,71,0.1),
+                    -3px 0 25px rgba(0,0,0,0.5);
+                z-index: 99999;
+                transform: translateX(100%);
+                transition: transform 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+            `;
+            
+            // Large fall wreath on right door
+            const wreath = document.createElement('div');
+            wreath.style.cssText = `
+                position: absolute;
+                top: 15%;
+                left: 50%;
+                width: 264px;
+                height: 264px;
+                transform: translate(-50%, -50%);
+                z-index: 100000;
+                border-radius: 50%;
+            `;
+            
+            // Circular wreath base - proper vine circle behind leaves
+            const wreathBase = document.createElement('div');
+            wreathBase.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                transform: translate(-50%, -50%);
+                background: 
+                    radial-gradient(circle, transparent 65%, rgba(139, 69, 19, 0.8) 70%, rgba(101, 67, 33, 0.9) 80%, rgba(139, 69, 19, 0.7) 90%, transparent 95%);
+                border-radius: 50%;
+                box-shadow: 
+                    0 8px 24px rgba(0,0,0,0.3),
+                    inset 0 0 20px rgba(0,0,0,0.2);
+            `;
+            wreath.appendChild(wreathBase);
+            
+            // Add leaves, berries, and pine cones to wreath
+            const colors = ['#FF4500', '#FF6347', '#FF8C00', '#FFA500', '#FFD700', '#D2691E', '#CD853F', '#DAA520', '#B8860B', '#DEB887', '#8B4513', '#A0522D', '#CD5C5C', '#DC143C', '#B22222', '#228B22', '#32CD32', '#6B8E23'];
+            
+            for (let i = 0; i < 96; i++) {
+                const angle = (i * 3.75) + (Math.random() * 15 - 7.5);
+                const radius = 102 + (Math.random() * 48 - 24);
+                const size = 14 + Math.random() * 10;
+                const angleRad = angle * Math.PI / 180;
+                const x = Math.cos(angleRad) * radius;
+                const y = Math.sin(angleRad) * radius;
+                
+                const leaf = document.createElement('div');
+                leaf.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: ${size}px;
+                    height: ${size}px;
+                    background: ${colors[Math.floor(Math.random() * colors.length)]};
+                    transform: translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${angle + Math.random() * 60}deg);
+                    border-radius: ${Math.random() > 0.5 ? '0 100% 0 100%' : '50% 0 50% 0'};
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                `;
+                wreath.appendChild(leaf);
+            }
+            
+            // Add red berries
+            for (let i = 0; i < 30; i++) {
+                const angle = i * 12 + (Math.random() * 10 - 5);
+                const radius = 90 + Math.random() * 42;
+                const angleRad = angle * Math.PI / 180;
+                const x = Math.cos(angleRad) * radius;
+                const y = Math.sin(angleRad) * radius;
+                
+                const berry = document.createElement('div');
+                berry.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 7px;
+                    height: 7px;
+                    background: radial-gradient(circle, #FF4500, #DC143C);
+                    border-radius: 50%;
+                    transform: translate(calc(-50% + ${x}px), calc(-50% + ${y}px));
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+                `;
+                wreath.appendChild(berry);
+            }
+            
+            // Add pine cones
+            for (let i = 0; i < 15; i++) {
+                const angle = i * 24 + (Math.random() * 15 - 7.5);
+                const radius = 96 + Math.random() * 30;
+                const angleRad = angle * Math.PI / 180;
+                const x = Math.cos(angleRad) * radius;
+                const y = Math.sin(angleRad) * radius;
+                
+                const pineCone = document.createElement('div');
+                pineCone.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 10px;
+                    height: 19px;
+                    background: linear-gradient(180deg, #8B4513 0%, #654321 50%, #3C2415 100%);
+                    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+                    transform: translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) rotate(${Math.random() * 360}deg);
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+                `;
+                wreath.appendChild(pineCone);
+            }
+            
+            // Large red bow
+            const bow = document.createElement('div');
+            bow.style.cssText = `
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                width: 60px;
+                height: 42px;
+                background: linear-gradient(45deg, #8B0000 0%, #DC143C 50%, #B22222 100%);
+                transform: translateX(-50%);
+                border-radius: 10px 10px 5px 5px;
+                box-shadow: 0 7px 18px rgba(0,0,0,0.4);
+            `;
+            wreath.appendChild(bow);
+            
+            doorRight.appendChild(wreath);
+            
+            // Right door window and handle (similar to left)
+            const rightWindow = document.createElement('div');
+            rightWindow.style.cssText = `
+                position: absolute;
+                top: 12%;
+                left: 12%;
+                width: 76%;
+                height: 45%;
+                background: 
+                    linear-gradient(-45deg, rgba(255,255,255,0.1), rgba(240,234,210,0.2)),
+                    rgba(240, 234, 210, 0.15);
+                border: 6px solid #3A251A;
+                border-radius: 12px;
+                backdrop-filter: blur(3px);
+                box-shadow: 
+                    inset 0 0 20px rgba(255,255,255,0.1),
+                    0 8px 16px rgba(0,0,0,0.4);
+                overflow: hidden;
+            `;
+            
+            for (let i = 1; i < 3; i++) {
+                const hBar = document.createElement('div');
+                hBar.style.cssText = `
+                    position: absolute;
+                    top: ${(i * 33.33)}%;
+                    left: 0;
+                    width: 100%;
+                    height: 6px;
+                    background: linear-gradient(90deg, #2A1B12, #3A251A, #2A1B12);
+                    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+                `;
+                rightWindow.appendChild(hBar);
+                
+                const vBar = document.createElement('div');
+                vBar.style.cssText = `
+                    position: absolute;
+                    left: ${(i * 33.33)}%;
+                    top: 0;
+                    width: 6px;
+                    height: 100%;
+                    background: linear-gradient(180deg, #2A1B12, #3A251A, #2A1B12);
+                    box-shadow: 0 0 4px rgba(0,0,0,0.6);
+                `;
+                rightWindow.appendChild(vBar);
+            }
+            
+            doorRight.appendChild(rightWindow);
+            
+            // Right door handle
+            const rightHandlePlate = document.createElement('div');
+            rightHandlePlate.style.cssText = `
+                position: absolute;
+                top: 48%;
+                left: 8px;
+                width: 50px;
+                height: 80px;
+                background: linear-gradient(135deg, #C9B037, #FFD700, #DAA520, #B8860B);
+                border-radius: 8px;
+                transform: translateY(-50%);
+                box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            `;
+            
+            const rightHandle = document.createElement('div');
+            rightHandle.style.cssText = `
+                position: absolute;
+                left: -12px;
+                top: 50%;
+                width: 45px;
+                height: 8px;
+                background: linear-gradient(90deg, #FFD700, #DAA520, #B8860B);
+                border-radius: 4px;
+                transform: translateY(-50%);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            `;
+            
+            const rightKnob = document.createElement('div');
+            rightKnob.style.cssText = `
+                position: absolute;
+                left: -10px;
+                top: 50%;
+                width: 24px;
+                height: 24px;
+                background: radial-gradient(circle, #FFD700, #DAA520, #B8860B);
+                border-radius: 50%;
+                transform: translateY(-50%);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            `;
+            
+            rightHandle.appendChild(rightKnob);
+            rightHandlePlate.appendChild(rightHandle);
+            doorRight.appendChild(rightHandlePlate);
+            
+            // Add lower panels to both doors
+            const leftLowerPanel = document.createElement('div');
+            leftLowerPanel.style.cssText = `
+                position: absolute;
+                bottom: 8%;
+                left: 12%;
+                width: 76%;
+                height: 35%;
+                border: 6px solid #3A251A;
+                border-radius: 8px;
+                background: linear-gradient(45deg, rgba(139,111,71,0.1), rgba(101,67,33,0.1));
+                box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            `;
+            doorLeft.appendChild(leftLowerPanel);
+            
+            // Add decorative pumpkins at bottom of left door - 3 varied sizes, stacked and overlapping
+            const pumpkin1 = document.createElement('div');
+            pumpkin1.style.cssText = `
+                position: absolute;
+                bottom: 0;
+                left: 25%;
+                width: 120px;
+                height: 102px;
+                background: linear-gradient(135deg, #FF8C00 0%, #FF4500 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+                box-shadow: 0 18px 45px rgba(0,0,0,0.4);
+                z-index: 12;
+            `;
+            
+            const pumpkin1Stem = document.createElement('div');
+            pumpkin1Stem.style.cssText = `
+                position: absolute;
+                top: -22px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 22px;
+                height: 34px;
+                background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            `;
+            pumpkin1.appendChild(pumpkin1Stem);
+            doorLeft.appendChild(pumpkin1);
+            
+            const pumpkin2 = document.createElement('div');
+            pumpkin2.style.cssText = `
+                position: absolute;
+                bottom: 0;
+                left: 40%;
+                width: 165px;
+                height: 135px;
+                background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+                box-shadow: 0 24px 58px rgba(0,0,0,0.4);
+                z-index: 11;
+            `;
+            
+            const pumpkin2Stem = document.createElement('div');
+            pumpkin2Stem.style.cssText = `
+                position: absolute;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 45px;
+                background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            `;
+            pumpkin2.appendChild(pumpkin2Stem);
+            doorLeft.appendChild(pumpkin2);
+            
+            const pumpkin3 = document.createElement('div');
+            pumpkin3.style.cssText = `
+                position: absolute;
+                bottom: 0;
+                left: 65%;
+                width: 88px;
+                height: 75px;
+                background: linear-gradient(135deg, #FFF8DC 0%, #F5DEB3 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+                box-shadow: 0 13px 32px rgba(0,0,0,0.4);
+                z-index: 13;
+            `;
+            
+            const pumpkin3Stem = document.createElement('div');
+            pumpkin3Stem.style.cssText = `
+                position: absolute;
+                top: -16px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 16px;
+                height: 26px;
+                background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            `;
+            pumpkin3.appendChild(pumpkin3Stem);
+            doorLeft.appendChild(pumpkin3);
+            
+            const rightLowerPanel = document.createElement('div');
+            rightLowerPanel.style.cssText = `
+                position: absolute;
+                bottom: 8%;
+                left: 12%;
+                width: 76%;
+                height: 35%;
+                border: 6px solid #3A251A;
+                border-radius: 8px;
+                background: linear-gradient(-45deg, rgba(139,111,71,0.1), rgba(101,67,33,0.1));
+                box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+            `;
+            doorRight.appendChild(rightLowerPanel);
+            
+            // Add to body
+            document.body.appendChild(doorLeft);
+            document.body.appendChild(doorRight);
+            
+            console.log('Luxury doors with fall wreath created');
+            return { doorLeft, doorRight };
+        }
+
+        // Door transition functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            createDoorPanels();
+            
+            // Debug - let's see what's happening
+            console.log('DOM loaded, checking elements...');
+            
+            // Find and explicitly set the prices
+            const smallPrice = document.querySelector('[data-package="small"] .package-price');
+            const mediumPrice = document.querySelector('[data-package="medium"] .package-price');
+            const largePrice = document.querySelector('[data-package="large"] .package-price');
+            
+            console.log('Small price element:', smallPrice);
+            console.log('Medium price element:', mediumPrice);
+            console.log('Large price element:', largePrice);
+            
+            if (smallPrice) {
+                smallPrice.innerHTML = '$250';
+                console.log('Set small price to $250');
+            }
+            if (mediumPrice) {
+                mediumPrice.innerHTML = '$500';
+                console.log('Set medium price to $500');
+            }
+            if (largePrice) {
+                largePrice.innerHTML = '$1,000';
+                console.log('Set large price to $1,000');
+            }
+            
+            // Setup listeners
+            ['small', 'medium', 'large'].forEach(packageType => {
+                setupPackageListeners(packageType);
+            });
+        });
+
+        let splashSkipped = false;
+        
+        function skipSplash() {
+            if (!splashSkipped) {
+                triggerDoorTransition();
+            }
+        }
+
+        function triggerDoorTransition() {
+            splashSkipped = true;
+            
+            const splashOverlay = document.querySelector('.splash-overlay');
+            const mainContent = document.querySelector('.main-content');
+            let doorLeft = document.querySelector('.door-left');
+            let doorRight = document.querySelector('.door-right');
+            
+            if (!doorLeft || !doorRight) {
+                const doors = createDoorPanels();
+                doorLeft = doors.doorLeft;
+                doorRight = doors.doorRight;
+            }
+            
+            // Phase 1: Close doors
+            setTimeout(() => {
+                doorLeft.style.transform = 'translateX(0)';
+                doorRight.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Phase 2: Hide splash
+            setTimeout(() => {
+                splashOverlay.style.visibility = 'hidden';
+            }, 800);
+            
+            // Phase 3: Open doors and show content
+            setTimeout(() => {
+                doorLeft.style.transform = 'translateX(-100%)';
+                doorRight.style.transform = 'translateX(100%)';
+                
+                mainContent.style.animation = 'mainContentFadeIn 1s ease-out forwards';
+                document.body.style.overflow = 'auto';
+                
+                // Clean up doors
+                setTimeout(() => {
+                    doorLeft.remove();
+                    doorRight.remove();
+                    
+                    // Scroll to pumpkin packages
+                    setTimeout(() => {
+                        document.querySelector('.pumpkin-packages').scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                }, 1500);
+            }, 2000);
+        }
+
+        // Auto-trigger door transition
+        setTimeout(() => {
+            if (!splashSkipped) {
+                triggerDoorTransition();
+            }
+        }, 4000);
+
+        // Smooth scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact Modal Functions
+        function openContactModal() {
+            document.getElementById('contactModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('contactModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeContactModal();
+            }
+        });
+
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = encodeURIComponent(`New inquiry from ${name} - Gathered by the Door`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+            
+            const mailtoLink = `mailto:annaksiy@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+            
+            alert('Email client opened! Your message is ready to send.');
+            closeContactModal();
+            event.target.reset();
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        function handleSplashInteraction(e) {
+            if (!splashSkipped && document.querySelector('.splash-overlay').style.visibility !== 'hidden') {
+                if (e.type === 'keydown' && [32, 13, 40].includes(e.keyCode)) {
+                    e.preventDefault();
+                    skipSplash();
+                } else if (e.type === 'wheel' || e.type === 'touchstart') {
+                    skipSplash();
+                }
+            }
+        }
+        
+        window.addEventListener('wheel', handleSplashInteraction);
+        window.addEventListener('keydown', handleSplashInteraction);
+        window.addEventListener('touchstart', handleSplashInteraction);
+        
+        setTimeout(() => {
+            window.removeEventListener('wheel', handleSplashInteraction);
+            window.removeEventListener('keydown', handleSplashInteraction);
+            window.removeEventListener('touchstart', handleSplashInteraction);
+        }, 12000);
+
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+            if (!splashSkipped) {
+                document.body.style.overflow = 'auto';
+            }
+        }, 12000);
+    </script>
+</body>
+</html>

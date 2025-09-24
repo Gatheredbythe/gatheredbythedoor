@@ -637,6 +637,79 @@
             letter-spacing: 0.1em;
         }
 
+        /* Bio Section */
+        .bio {
+            padding: clamp(4rem, 10vw, 8rem) 1rem;
+            background: var(--sand-medium);
+        }
+
+        .bio-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 769px) {
+            .bio-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .bio-text h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            font-family: 'Fredoka One', 'Comic Neue', 'Quicksand', sans-serif;
+        }
+
+        .bio-text p {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 200;
+            color: var(--sage-green);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
         /* Pumpkin Packages Section */
         .pumpkin-packages {
             padding: clamp(4rem, 10vw, 8rem) 1rem;
@@ -1390,7 +1463,7 @@
         </section>
 
         <!-- Bio Section -->
-        <section class="bio-section">
+        <section class="bio">
             <div class="container">
                 <div class="bio-content fade-in">
                     <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/434d5dba18bb8a070ae85843d2f373cbb963b906/annas%20head.png" alt="Anna - Founder of Gathered by the Door, among beautiful cherry blossoms" class="bio-photo">

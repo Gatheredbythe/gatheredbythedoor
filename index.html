@@ -636,7 +636,109 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
         }
-
+        
+        /* Package Carousel Styles */
+        .package-examples {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(168, 181, 160, 0.2);
+        }
+        
+        .examples-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            height: 200px;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+        
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .carousel-arrow:hover {
+            background: rgba(0,0,0,0.7);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-arrow.prev {
+            left: 10px;
+        }
+        
+        .carousel-arrow.next {
+            right: 10px;
+        }
+        
         /* Bio Section */
         .bio {
             padding: clamp(4rem, 10vw, 8rem) 1rem;
@@ -1336,6 +1438,31 @@
                 
                 <div class="packages-footer fade-in">
                     <p><strong>🍂 Limited Time:</strong> Book by September 30th for early October installation. All packages include delivery, setup, and styling consultation.</p>
+                </div>
+                <div class="package-examples">
+                    <div class="examples-title">
+                        🎃 Examples
+                    </div>
+                    <div class="carousel-container" data-carousel="small">
+                        <button class="carousel-arrow prev" onclick="moveCarousel('small', -1)">‹</button>
+                        <button class="carousel-arrow next" onclick="moveCarousel('small', 1)">›</button>
+                        <div class="carousel-track" id="carousel-small">
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/400x200/FF8C00/FFFFFF?text=Small+Porch+Setup+1" alt="Small pumpkin display example 1">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/400x200/FF4500/FFFFFF?text=Small+Porch+Setup+2" alt="Small pumpkin display example 2">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="https://via.placeholder.com/400x200/FFD700/FFFFFF?text=Small+Porch+Setup+3" alt="Small pumpkin display example 3">
+                            </div>
+                        </div>
+                        <div class="carousel-nav" id="nav-small">
+                            <div class="carousel-dot active" onclick="goToSlide('small', 0)"></div>
+                            <div class="carousel-dot" onclick="goToSlide('small', 1)"></div>
+                            <div class="carousel-dot" onclick="goToSlide('small', 2)"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

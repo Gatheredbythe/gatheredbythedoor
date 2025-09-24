@@ -642,73 +642,69 @@
             padding: clamp(4rem, 10vw, 8rem) 1rem;
             background: var(--sand-medium);
         }
-
+        
         .bio-content {
             display: grid;
             gap: 3rem;
             align-items: center;
         }
-
+        
         @media (min-width: 769px) {
             .bio-content {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 300px 1fr;
                 gap: 4rem;
             }
         }
-
-        .bio-text h2 {
+        
+        .bio-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(157, 143, 127, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .bio-text-container {
+            /* Container for consistent spacing */
+        }
+        
+        .bio-text-container h2 {
             font-size: clamp(1.8rem, 4vw, 3rem);
             font-weight: 600;
             margin-bottom: 2rem;
             color: var(--text-dark);
             font-family: 'Fredoka One', 'Comic Neue', 'Quicksand', sans-serif;
         }
-
-        .bio-text p {
+        
+        .bio-text {
             font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: var(--text-light);
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
-
-        .stats {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
+        
+        .bio-highlight {
             background: rgba(255, 255, 255, 0.6);
             border-radius: 15px;
+            padding: 2rem 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(157, 143, 127, 0.2);
+        }
+        
+        .experience-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--sage-green), var(--dusty-rose));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(157, 143, 127, 0.3);
         }
 
-        .stat-number {
-            font-size: clamp(2rem, 5vw, 2.5rem);
-            font-weight: 200;
-            color: var(--sage-green);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: clamp(0.8rem, 2vw, 0.9rem);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
 
         /* Pumpkin Packages Section */
         .pumpkin-packages {
@@ -1466,24 +1462,28 @@
         <section class="bio">
             <div class="container">
                 <div class="bio-content fade-in">
-                    <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/434d5dba18bb8a070ae85843d2f373cbb963b906/annas%20head.png" alt="Anna - Founder of Gathered by the Door, among beautiful cherry blossoms" class="bio-photo">
+                    <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/434d5dba18bb8a070ae85843d2f373cbb963b906/annas%20head.png" 
+                         alt="Anna - Founder of Gathered by the Door, among beautiful cherry blossoms" 
+                         class="bio-photo">
                     
-                    <h2>Meet Anna</h2>
-                    <p class="bio-text">
-                        Hi there! I'm Anna, the creative heart behind Gathered by the Door. My journey into this beautiful business began with a simple truth: I am absolutely in love with the holidays and the magic that comes with decorating spaces.
-                    </p>
-                    
-                    <div class="bio-highlight">
-                        <span class="experience-badge">🎨 15+ Years of Design & Decorating Experience</span>
+                    <div class="bio-text-container">
+                        <h2>Meet Anna</h2>
                         <p class="bio-text">
-                            For over fifteen years, I've been channeling my creativity and passion for design into transforming ordinary spaces into extraordinary experiences. What started as a personal love for holiday decorating has blossomed into a calling to bring that same joy and wonder to your home.
+                            Hi there! I'm Anna, the creative heart behind Gathered by the Door. My journey into this beautiful business began with a simple truth: I am absolutely in love with the holidays and the magic that comes with decorating spaces.
                         </p>
-                        <p class="bio-text">
-                            I believe that every entrance tells a story, and every seasonal display has the power to create lasting memories. Whether it's the perfect pumpkin arrangement for fall, twinkling lights for the holidays, or a custom celebration setup, I pour my heart into every project because I know how much these moments mean to families.
-                        </p>
-                        <p class="bio-text">
-                            When I'm not designing magical displays, you'll find me exploring new creative techniques, sourcing the most beautiful seasonal elements, and dreaming up ways to make your next gathering even more special. Thank you for letting me be part of your story! 🍂✨
-                        </p>
+                        
+                        <div class="bio-highlight">
+                            <span class="experience-badge">15+ Years of Design & Decorating Experience</span>
+                            <p class="bio-text">
+                                For over fifteen years, I've been channeling my creativity and passion for design into transforming ordinary spaces into extraordinary experiences. What started as a personal love for holiday decorating has blossomed into a calling to bring that same joy and wonder to your home.
+                            </p>
+                            <p class="bio-text">
+                                I believe that every entrance tells a story, and every seasonal display has the power to create lasting memories. Whether it's the perfect pumpkin arrangement for fall, twinkling lights for the holidays, or a custom celebration setup, I pour my heart into every project because I know how much these moments mean to families.
+                            </p>
+                            <p class="bio-text">
+                                When I'm not designing magical displays, you'll find me exploring new creative techniques, sourcing the most beautiful seasonal elements, and dreaming up ways to make your next gathering even more special. Thank you for letting me be part of your story!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

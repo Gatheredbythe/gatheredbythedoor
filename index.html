@@ -644,26 +644,23 @@
         }
         
         .bio-content {
-            display: grid;
-            gap: 3rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-        }
-        
-        @media (min-width: 769px) {
-            .bio-content {
-                grid-template-columns: 300px 1fr;
-                gap: 4rem;
-            }
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .bio-photo {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 20px;
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 50% / 60%;
             box-shadow: 0 20px 40px rgba(157, 143, 127, 0.3);
-            margin: 0 auto;
-            display: block;
+            filter: blur(0.5px);
+            margin-bottom: 1rem;
         }
         
         .bio-text-container {
@@ -1459,7 +1456,7 @@
         </section>
 
         <!-- Bio Section -->
-        <section class="bio">
+       <section class="bio">
             <div class="container">
                 <div class="bio-content fade-in">
                     <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/434d5dba18bb8a070ae85843d2f373cbb963b906/annas%20head.png" 

@@ -1673,6 +1673,50 @@
     </div>
 
     <script>
+        // Carousel state management
+        const carouselState = {
+            small: { currentSlide: 0, totalSlides: 3 },
+            medium: { currentSlide: 0, totalSlides: 3 },
+            large: { currentSlide: 0, totalSlides: 3 }
+        };
+        
+        // Move carousel by direction (-1 for prev, 1 for next)
+        function moveCarousel(packageType, direction) {
+            const state = carouselState[packageType];
+            const newSlide = state.currentSlide + direction;
+            
+            if (newSlide >= 0 && newSlide < state.totalSlides) {
+                goToSlide(packageType, newSlide);
+            } else if (newSlide < 0) {
+                goToSlide(packageType, state.totalSlides - 1);
+            } else {
+                goToSlide(packageType, 0);
+            }
+        }
+        
+        // Go to specific slide
+        function goToSlide(packageType, slideIndex) {
+            const state = carouselState[packageType];
+            const track = document.getElementById(`carousel-${packageType}`);
+            const dots = document.querySelectorAll(`#nav-${packageType} .carousel-dot`);
+            
+            if (!track || !dots.length) {
+                console.error(`Carousel elements not found for ${packageType}`);
+                return;
+            }
+            
+            // Update state
+            state.currentSlide = slideIndex;
+            
+            // Move track
+            const translateX = -slideIndex * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === slideIndex);
+            });
+        }
         // Package pricing and state management
         const packageState = {
             small: { removal: false, photoshoot: false, video: false },

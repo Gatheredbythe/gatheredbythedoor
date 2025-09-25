@@ -1289,6 +1289,28 @@
                         <div class="package-price" data-base-price="250">$250</div>
                         <div class="package-details">15-20 Premium Pumpkins</div>
                         <p>Perfect for cozy porches and smaller spaces. Includes a beautiful mix of traditional orange pumpkins, white pumpkins, and decorative gourds.</p>
+                        <div class="package-examples">
+                            <div class="carousel-container" data-carousel="small">
+                                <button class="carousel-arrow prev" onclick="moveCarousel('small', -1)">‹</button>
+                                <button class="carousel-arrow next" onclick="moveCarousel('small', 1)">›</button>
+                                <div class="carousel-track" id="carousel-small">
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/f9149809ecbd8cd5a14015099073dbc880170974/pumpkin%20example%20sm33.png" alt="Small pumpkin display example 1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20sm2.png" alt="Small pumpkin display example 2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/f9149809ecbd8cd5a14015099073dbc880170974/pumpkin%20example%20sm33.png" alt="Small pumpkin display example 3">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav" id="nav-small">
+                                    <div class="carousel-dot active" onclick="goToSlide('small', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('small', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('small', 2)"></div>
+                                </div>
+                            </div>
+                        </div>
                         <ul class="package-features">
                             <li>Variety of sizes and colors</li>
                             <li>Decorative arrangement setup</li>
@@ -1330,31 +1352,7 @@
                         </div>
                         
                         <button class="package-button" onclick="bookPackage('small')">Book Small Patch</button>
-                         <div class="package-examples">
-                        <div class="examples-title">
-                            🎃 Small Examples
-                        </div>
-                            <div class="carousel-container" data-carousel="small">
-                                <button class="carousel-arrow prev" onclick="moveCarousel('small', -1)">‹</button>
-                                <button class="carousel-arrow next" onclick="moveCarousel('small', 1)">›</button>
-                                <div class="carousel-track" id="carousel-small">
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/f9149809ecbd8cd5a14015099073dbc880170974/pumpkin%20example%20sm33.png" alt="Small pumpkin display example 1">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20sm2.png" alt="Small pumpkin display example 2">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/f9149809ecbd8cd5a14015099073dbc880170974/pumpkin%20example%20sm33.png" alt="Small pumpkin display example 3">
-                                    </div>
-                                </div>
-                                <div class="carousel-nav" id="nav-small">
-                                    <div class="carousel-dot active" onclick="goToSlide('small', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('small', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('small', 2)"></div>
-                                </div>
-                            </div>
-                        </div>
+                         
                     </div>
 
                     <div class="package-card fade-in featured" data-package="medium">

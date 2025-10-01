@@ -1396,8 +1396,33 @@
                         <div class="package-price" data-base-price="500">$500</div>
                         <div class="package-details">25-35 Premium Pumpkins</div>
                         <p>Our most popular option! Creates a stunning display with premium pumpkins, decorative elements, and professional styling.</p>
+                        
+                        <div class="package-examples">
+                            <div class="carousel-container" data-carousel="medium">
+                                <button class="carousel-arrow prev" onclick="moveCarousel('medium', -1)">‹</button>
+                                <button class="carousel-arrow next" onclick="moveCarousel('medium', 1)">›</button>
+                                <div class="carousel-track" id="carousel-medium">
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20md.png" alt="Medium pumpkin display example 1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20md2.png" alt="Medium pumpkin display example 2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20sm.png" alt="Medium pumpkin display example 3">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav" id="nav-medium">
+                                    <div class="carousel-dot active" onclick="goToSlide('medium', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('medium', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('medium', 2)"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <ul class="package-features">
-                            <li>Hay bales or corn stalks</li>
+                            <li>Premium pumpkins & gourds</li>
+                            <li>Hay bales and corn stalks</li>
                             <li>Professional arrangement design</li>
                             <li>Seasonal accent decorations</li>
                         </ul>
@@ -1437,31 +1462,6 @@
                         </div>
                         
                         <button class="package-button" onclick="bookPackage('medium')">Book Medium Patch</button>
-                         <div class="package-examples">
-                        <div class="examples-title">
-                            🎃 Medium Examples
-                        </div>
-                            <div class="carousel-container" data-carousel="medium">
-                                <button class="carousel-arrow prev" onclick="moveCarousel('medium', -1)">‹</button>
-                                <button class="carousel-arrow next" onclick="moveCarousel('medium', 1)">›</button>
-                                <div class="carousel-track" id="carousel-medium">
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20md.png" alt="medium pumpkin display example 1">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20md2.png" alt="medium pumpkin display example 2">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20sm.png" alt="medium pumpkin display example 3">
-                                    </div>
-                                </div>
-                                <div class="carousel-nav" id="nav-medium">
-                                    <div class="carousel-dot active" onclick="goToSlide('medium', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('medium', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('medium', 2)"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="package-card fade-in" data-package="large">
@@ -1469,12 +1469,36 @@
                         <h3>Large Patch</h3>
                         <div class="package-price" data-base-price="1000">$1,000</div>
                         <div class="package-details">50-70 Premium Pumpkins</div>
-                        <p>The ultimate fall statement! A spectacular display that will make your home the highlight of the neighborhood this autumn.</p>
+                        <p>The ultimate fall statement! Transform your entire front yard into a spectacular autumn wonderland with our most comprehensive package.</p>
+                        
+                        <div class="package-examples">
+                            <div class="carousel-container" data-carousel="large">
+                                <button class="carousel-arrow prev" onclick="moveCarousel('large', -1)">‹</button>
+                                <button class="carousel-arrow next" onclick="moveCarousel('large', 1)">›</button>
+                                <div class="carousel-track" id="carousel-large">
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20lg.jpg" alt="Large pumpkin display example 1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20lg2.png" alt="Large pumpkin display example 2">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20lg.jpg" alt="Large pumpkin display example 3">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav" id="nav-large">
+                                    <div class="carousel-dot active" onclick="goToSlide('large', 0)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('large', 1)"></div>
+                                    <div class="carousel-dot" onclick="goToSlide('large', 2)"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <ul class="package-features">
-                            <li>Hay bales & corn stalks</li>
-                            <li>Seasonal accent decorations</li>
-                            <li>Professional design & installation</li>
-                            <li>One Professional Photo Included</li>
+                            <li>50-70 premium pumpkins</li>
+                            <li>Full yard transformation</li>
+                            <li>Multiple hay bales & corn stalks</li>
+                            <li>Premium fall decorations</li>
                         </ul>
                         
                         <div class="package-addons">
@@ -1512,31 +1536,6 @@
                         </div>
                         
                         <button class="package-button" onclick="bookPackage('large')">Book Large Patch</button>
-                        <div class="package-examples">
-                        <div class="examples-title">
-                            🎃 Large Examples
-                        </div>
-                            <div class="carousel-container" data-carousel="large">
-                                <button class="carousel-arrow prev" onclick="moveCarousel('large', -1)">‹</button>
-                                <button class="carousel-arrow next" onclick="moveCarousel('large', 1)">›</button>
-                                <div class="carousel-track" id="carousel-large">
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20lg.jpg" alt="large pumpkin display example 1">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/94776f290b9811cbebabf74ce2ad87091aaec3e4/pumpkin%20example%20lg2.png" alt="large pumpkin display example 2">
-                                    </div>
-                                    <div class="carousel-slide">
-                                        <img src="https://raw.githubusercontent.com/Gatheredbythe/gatheredbythedoor/7e08294ebef369d2194d23b52c4fe38341686e03/pumpkin%20example%20lg.jpg" alt="large pumpkin display example 3">
-                                    </div>
-                                </div>
-                                <div class="carousel-nav" id="nav-large">
-                                    <div class="carousel-dot active" onclick="goToSlide('large', 0)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('large', 1)"></div>
-                                    <div class="carousel-dot" onclick="goToSlide('large', 2)"></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     
                 </div>
